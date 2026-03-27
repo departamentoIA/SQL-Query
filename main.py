@@ -20,7 +20,7 @@ def main() -> None:
         raise ValueError("No hay consultas definidas en pkg/globals.py")
 
     for job in QUERIES:
-        print(f"[INFO] Ejecutando job: {job['name']}")
+        print(f"Ejecutando job: {job['name']}")
         df = run_query_job(job)
         generated_files = export_dataframe_to_excel_files(
             df=df,
@@ -29,7 +29,7 @@ def main() -> None:
             sheet_name=job.get("sheet_name", "data"),
         )
 
-        print(f"[OK] Job finalizado: {job['name']}")
+        print(f"Job finalizado: {job['name']}")
         print("Archivos generados:")
         for path in generated_files:
             print(f" - {path}")
